@@ -128,7 +128,7 @@ app.get("/offers/all", async (req, res) => {
       sortOption.product_price = 1;
     }
 
-    const offers = await Offer.find(filters).sort(sortOption);
+    const offers = await Offer.find(filters).sort(sortOption).populate("owner");
     console.log("filter >>>>>", filters);
     console.log("filter >>>>>", sortOption);
     console.log(offers);
